@@ -1,0 +1,564 @@
+/* === 1. FONT UTAMA (DARI GIS) === */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* === 2. WARNA DARI GIS (BIAR GAMPANG DIINGET) === */
+:root {
+    --primary-blue: #0d3d6a; /* Biru Tua GIS */
+    --primary-yellow: #fbb040; /* Kuning Tombol GIS */
+}
+
+/* === 3. TEMPAT LO MULAI NYONTEK === */
+/* Contoh nyontek tombol kuning GIS */
+.btn-custom {
+    background-color: var(--primary-yellow);
+    border-color: var(--primary-yellow);
+    font-weight: 600;
+    color: #fff; /* Atau #000, cek lagi di GIS */
+}
+
+/* Contoh nyontek tombol biru primer */
+.btn-primary.btn-custom {
+    background-color: #2203aa;
+    border-color: #2203aa;
+    margin-top: 415px;
+}
+.btn-outline-primary.btn-custom-outline {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+.btn-outline-primary.btn-custom-outline:hover {
+    background-color: white ;
+    color: white;
+}
+
+
+.hero-section {
+    padding: 100px 0;
+    /* (Cek lagi angka pastinya di DevTools GIS) */
+}
+
+.about-section {
+    padding: 100px 0;
+}
+
+/* === HERO SLIDER STYLING (BIAR KAYAK GIS) === */
+
+.hero-slider-section .carousel-item {
+    position: relative; /* Wajib */
+    height: 700px; /* ATUR TINGGI SLIDER LO DI SINI. Mainin angkanya! */
+}
+
+.hero-slider-section .carousel-item img {
+    height: 100%;
+    object-fit: cover; /* Biar gambar nutupin area, gak gepeng */
+    width: 100%;
+}
+
+/* Ini buat bikin lapisan gelap (overlay) di atas gambar */
+.hero-slider-section .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ini overlay biru tua transparan, nyontek GIS */
+}
+
+/* Ini buat ngatur posisi teksnya (biar di tengah-tengah) */
+.hero-slider-section .carousel-caption {
+    /* Hapus settingan default bootstrap */
+    position: absolute;
+    right: auto;
+    bottom: auto;
+    left: 10%; /* Jarak dari kiri 10% */
+    top: 50%; /* Turun 50% dari atas */
+    transform: translateY(-50%); /* Naikin 50% biar pas di tengah */
+    width: 80%; /* Lebar area teks */
+    padding: 0;
+}
+
+/* Ini buat ngatur box kontennya */
+.hero-slider-section .caption-content {
+    /* Biar bisa di-align (text-start, text-center, text-end) */
+    width: 50%; /* Lebar teksnya cuma 50% (biar kayak GIS) */
+    color: #fff; /* WARNA TEKS JADI PUTIH */
+}
+
+/* Atur ulang posisi kalau di-align kanan */
+.hero-slider-section .caption-content.text-end {
+    margin-left: auto; /* Otomatis geser ke kanan */
+}
+
+/* Atur ulang posisi kalau di-align tengah */
+.hero-slider-section .caption-content.text-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /* Kalo tengah, bikin full-width aja */
+}
+
+/* Styling Font (Biar Keren) */
+.hero-slider-section .caption-content h1 {
+    font-size: 3.5rem; /* Ukuran headline, ganti sesuai selera */
+    font-weight: 700;
+}
+
+.hero-slider-section .caption-content p { 
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+#slide-1 .btn-custom {
+    margin-top: 300px;
+}
+
+/* Styling Tombol (Nyontek GIS) */
+.btn-custom {
+    background-color: #fbb040; /* Warna Kuning GIS */
+    border-color: #fbb040;
+    font-weight: 600;
+    color: #0d3d6a; /* Warna Biru GIS */
+    padding: 10px 25px;
+    margin-right: 10px;
+}
+.btn-custom-outline {
+    border-color: #fff; /* Border putih */
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 25px;
+}
+.btn-custom-outline:hover {
+    background-color: #fff;
+    color: #0d3d6a; /* Biru GIS */
+}
+/* (TERUSIN BUAT NAVBAR, FOOTER, DLL) */
+
+/* === INFO VALUES SECTION === */
+
+/* Kotak Kiri (Biru) */
+.values-box {
+    background-color: #0d3d6a; /* Pake variabel biru lo */
+    color: #fff;
+    padding: 60px 40px; /* Jarak dalem yang lega */
+}
+
+/* Item List Value */
+.value-item {
+    display: flex; /* Biar ikon di kiri, teks di kanan */
+    align-items: flex-start;
+    margin-bottom: 30px; /* Jarak antar item */
+}
+
+/* Styling Ikon Panah */
+.value-item .icon {
+    margin-right: 15px;
+    margin-top: 2px; /* Turunin dikit biar sejajar sama huruf */
+    color: #fff; /* Warna ikon putih */
+    flex-shrink: 0; /* Biar ikon gak gepeng */
+}
+
+/* Styling Teks Value */
+.value-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.value-item p {
+    font-size: 0.9rem;
+    opacity: 0.9; /* Sedikit transparan biar enak dibaca */
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Kotak Kanan (Putih) */
+.overview-box {
+    background-color: #f9f9f9; /* Putih agak abu dikit biar smooth */
+    padding: 60px 50px; /* Jarak dalem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Teks vertikal di tengah */
+}
+
+/* Judul Besar */
+.overview-box h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Garis Biru Kecil di Bawah Judul */
+.overview-box .divider-line {
+    width: 60px; /* Panjang garis */
+    height: 4px; /* Tebal garis */
+    background-color: #0d3d6a;
+    margin-bottom: 30px;
+}
+
+/* Teks Deskripsi */
+.overview-text {
+    color: #555;
+    line-height: 1.8; /* Spasi baris biar enak dibaca */
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* RESPONSIVE: Pas di HP jaraknya diatur ulang */
+@media (max-width: 768px) {
+    .values-box, .overview-box {
+        padding: 40px 20px;
+    }
+}
+
+/* === TAMBAHAN UNTUK KOTAK ABU-ABU === */
+/* === KOTAK PUTIH (ATAS) === */
+.overview-box {
+    background-color: #f9f9f9; /* Putih bersih */
+    padding: 60px 50px; /* Padding kiri-kanan */
+    color: #333;
+}
+
+/* === KOTAK HITAM ABOUT US (BAWAH) === */
+.about-cta-box {
+    background-color: #1a1a1a; /* Hitam pekat (bukan hitam mati) sesuai referensi */
+    padding: 20px 50px; /* PENTING: 50px biar teksnya LURUS sama teks di atasnya */
+    display: flex;
+    justify-content: space-between; /* Teks di kiri, Tombol di kanan */
+    align-items: center; /* Vertikal tengah */
+}
+
+/* Teks "About Us" */
+.about-cta-box h3 {
+    color: #fff;
+    font-size: 1.8rem; /* Ukuran font besar & tebal */
+    font-weight: 800; /* Tebal banget kayak referensi */
+    margin: 0;
+}
+
+/* Tombol LEARN MORE (Outline Putih) */
+.btn-outline-white-custom {
+    background-color: transparent;
+    border: 2px solid #fff; /* Garis putih tegas 2px */
+    color: #fff;
+    padding: 12px 35px; /* Tombol agak lebar */
+    font-weight: 700; /* Teks tebal */
+    font-size: 0.9rem;
+    letter-spacing: 1px; /* Jarak antar huruf biar elegan */
+    border-radius: 0; /* SIKU KOTAK (Penting! Referensi gak pake radius) */
+    text-transform: uppercase; /* Huruf kapital semua */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Efek Hover Tombol */
+.btn-outline-white-custom:hover {
+    background-color: #fff; /* Jadi putih pas disorot */
+    color: #1a1a1a; /* Teks jadi hitam */
+}
+
+/* RESPONSIVE (HP) */
+@media (max-width: 768px) {
+    .overview-box, .about-cta-box {
+        padding: 40px 20px; /* Kurangi padding di HP */
+    }
+    .about-cta-box {
+        flex-direction: column; /* Tombol turun ke bawah */
+        text-align: center;
+        gap: 20px;
+    }
+    .about-cta-box h3 {
+        margin-bottom: 0;
+    }
+}
+
+/* === SECTION SERVICES & WHY US === */
+
+.services-why-section {
+    padding: 80px 0; /* Jarak atas bawah section yang lega */
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800; /* Judul tebal */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Garis Biru Kecil di Bawah Judul */
+.divider-line-small {
+    width: 40px; /* Panjang garis */
+    height: 4px; /* Tebal garis */
+    background-color: var(--primary-blue); /* Pake variabel biru lo */
+    margin-bottom: 40px; /* Jarak ke list di bawahnya */
+}
+/* Kalo variabel blm jalan, ganti var(--primary-blue) jadi #0d3d6a */
+
+/* === LIST CUSTOM (Hapus bullet bawaan) === */
+.custom-list {
+    list-style: none; /* Hapus bullet standar HTML */
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list li {
+    display: flex; /* KUNCI RAPI: Pake Flexbox */
+    align-items: center; /* Ikon dan teks sejajar tengah */
+    margin-bottom: 20px; /* Jarak antar baris */
+}
+
+/* Styling Ikon (SVG) */
+.custom-list li .icon {
+    color: var(--primary-blue); /* Warna ikon BIRU */
+    margin-right: 15px; /* Jarak ikon ke teks */
+    display: flex; /* Biar ikon pas di tengah kotaknya */
+}
+
+/* Styling Teks List */
+.custom-list li .text {
+    font-size: 1.1rem;
+    font-weight: 600; /* Agak tebal sesuai referensi */
+    color: #444;
+}
+
+/* KHUSUS Ikon di Kanan (Kotak Ceklis) */
+/* Karena referensi kotak ceklisnya agak lebih tebal, kita atur size dikit kalo perlu */
+.custom-list li svg {
+    width: 22px; 
+    height: 22px;
+}
+
+
+/* === PORTFOLIO GALLERY SECTION === */
+
+.portfolio-gallery-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+/* Garis Biru Tengah (Di bawah judul) */
+.divider-line-center {
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-blue); /* #0d3d6a */
+    margin: 20px auto; /* auto kiri-kanan biar di tengah */
+}
+
+/* === KARTU PORTOFOLIO === */
+
+.main-img-box {
+    width: 100%;
+    height: 250px; /* Atur tinggi foto besar biar seragam */
+    overflow: hidden; /* Potong gambar kalo kegedean */
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* Bingkai tipis */
+}
+
+.main-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar penuh kotak & gak gepeng */
+    transition: transform 0.3s ease;
+}
+
+/* Barisan Foto Kecil (Thumbnails) */
+.thumb-row {
+    display: flex; /* Berjejer ke samping */
+    justify-content: center;
+    gap: 10px; /* Jarak antar foto kecil */
+    margin-bottom: 15px;
+    overflow-x: auto; /* Kalo kebanyakan bisa di-scroll samping */
+}
+
+.thumb-img {
+    width: 60px; /* Lebar foto kecil */
+    height: 50px; /* Tinggi foto kecil */
+    object-fit: cover;
+    cursor: pointer; /* Kursor jadi tangan */
+    border: 2px solid transparent; /* Border transparan dulu */
+    opacity: 0.6; /* Agak pudar pas belum diklik */
+    transition: all 0.2s ease;
+}
+
+/* Efek pas foto kecil disorot mouse */
+.thumb-img:hover {
+    opacity: 1;
+    border-color: var(--primary-blue);
+}
+
+/* Judul di bawah foto */
+.portfolio-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+    .main-img-box {
+        height: 200px; /* Di HP agak kecilin dikit */
+    }
+}
+
+/* === PARTNER LOGO SECTION === */
+.partner-section {
+    padding: 60px 0;
+    background-color: #fff;
+    overflow: hidden; /* Biar logo yg lewat layar gak bikin scrollbar */
+}
+
+/* Kotak Pembungkus */
+.slider-area {
+    height: 100px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+/* Jalur Slider (Track) */
+.slide-track {
+    display: flex;
+    width: calc(200px * 10); /* 200px dikali JUMLAH TOTAL LOGO (asli + duplikat) */
+    animation: scroll 20s linear infinite; /* 20s = kecepatan, makin kecil makin ngebut */
+}
+
+/* Styling Tiap Logo */
+.slide-logo {
+    height: 100px;
+    width: 200px; /* Lebar area per logo */
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.slide-logo img {
+    width: 100%;
+    max-height: 80px; /* Batasi tinggi logo biar seragam */
+    object-fit: contain;
+    filter: grayscale(100%); /* Biar item putih (opsional, kalo mau berwarna hapus ini) */
+    transition: filter 0.3s;
+}
+
+.slide-logo img:hover {
+    filter: grayscale(0%); /* Pas disorot jadi berwarna */
+}
+
+/* Animasi Jalan ke Samping */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-200px * 5)); } /* -200px dikali JUMLAH LOGO ASLI (bukan total) */
+}
+
+/* === CONTACT & FOOTER SECTION === */
+
+/* Area Kiri (Form Biru) */
+.contact-form-area {
+    background-color: var(--primary-blue); /* #0d3d6a */
+}
+
+/* Custom Input Form (Kotak Putih Polos) */
+.custom-input {
+    background-color: #fff;
+    border: none;
+    border-radius: 0; /* Kotak lancip sesuai referensi */
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    border: 1px solid #fbb040; /* Efek kuning pas diklik */
+}
+
+/* Area Kanan (Info Putih) */
+.contact-info-area {
+    background-color: #fff;
+}
+
+/* Ikon di Alamat */
+.info-item .icon {
+    width: 30px;
+    margin-top: -5px; /* Sesuaikan biar sejajar judul */
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .wrapper {
+        padding: 30px !important; /* Di HP padding dikecilin */
+    }
+}
+
+/* HALAMAN ABOUT US */
+
+/* === ABOUT PAGE CONTACT SECTION === */
+
+/* 1. Pengaturan Kolom Kiri (FOTO) */
+.about-img-side {
+    position: relative;
+    background-image: url('../img/slide4.png'); /* FOTO KAMU */
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+/* Overlay untuk teks di atas gambar */
+.about-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+.divider-line-small {
+    width: 40px; /* Panjang garis */
+    height: 4px; /* Tebal garis */
+    background-color: var(--primary-blue); /* Pake variabel biru lo */
+    margin-bottom: 40px; /* Jarak ke list di bawahnya */
+}
+/* Judul di atas background */
+.about-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0px 3px 10px rgba(0,0,0,0.6);
+}
+
+/* Tombol CTA */
+.about-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.about-btn:hover {
+    background: #0056c9;
+}
+
+
+/* 2. Pengaturan Kolom Kanan (FORM) */
+.about-form-side {
+    background-color: var(--primary-blue); /* Warnanya tetep sama kayak Home */
+    display: flex;
+    align-items: center; /* Biar formnya vertikal di tengah */
+}
+
+/* RESPONSIVE (HP) */
+@media (max-width: 991px) {
+    .about-img-side {
+        min-height: 300px; /* Di HP fotonya jangan tinggi-tinggi */
+    }
+}
