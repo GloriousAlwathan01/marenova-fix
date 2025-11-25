@@ -562,3 +562,302 @@ body {
         min-height: 300px; /* Di HP fotonya jangan tinggi-tinggi */
     }
 }
+
+/* === SECTION VISION & BRIEF === */
+
+/* 1. KOLOM KIRI (BIRU) */
+.vision-side {
+    background-color: var(--primary-blue); /* Pake warna biru utama lo */
+    min-height: 600px; /* Biar tinggi minimalnya kejaga */
+}
+
+/* Judul Besar di Kiri */
+.vision-side .section-heading {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+/* Teks Visi Misi */
+.vm-text, .vm-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* List Misi (Bullet) */
+.vm-list {
+    list-style-type: disc; /* Bullet bulat */
+    margin-bottom: 0;
+}
+.vm-list li {
+    margin-bottom: 8px; /* Jarak antar poin misi */
+}
+
+
+/* 2. KOLOM KANAN (PUTIH) */
+.brief-side {
+    color: #333;
+}
+
+/* Judul Tengah (Brief) */
+.brief-title {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* Garis Biru di Tengah */
+.divider-line-center {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    margin: 0 auto; /* Posisi di tengah */
+}
+
+/* Paragraf Teks Brief */
+.brief-text p {
+    font-size: 1rem;
+    line-height: 1.8; /* Spasi baris lega biar enak dibaca */
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify; /* Rata kiri-kanan biar rapi kayak koran */
+}
+
+/* Padding Khusus di Layar Besar biar teks ga terlalu lebar */
+@media (min-width: 992px) {
+    .brief-side .content-wrapper {
+        padding: 80px 100px !important; /* Padding kiri-kanan gedein biar teks ngumpul di tengah */
+    }
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+    .vision-side, .brief-side {
+        padding: 40px 10px; /* Di HP paddingnya kecilin */
+    }
+    .brief-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* === SECTION CORPORATE VALUES === */
+
+/* KOLOM KIRI (VALUES) */
+.values-side {
+    min-height: 600px;
+}
+.values-side .section-heading {
+    font-weight: 800;
+    color: #333;
+    font-size: 2rem;
+}
+.values-side .text-primary {
+    color: var(--primary-blue) !important; /* Panah Biru */
+}
+
+/* KOLOM KANAN (FOTO & COUNTER) */
+.image-side {
+    position: relative; /* Wajib buat nempelin counter di bawah */
+    padding: 0;
+    min-height: 600px; /* Samain tinggi minimalnya */
+}
+
+/* Background Foto */
+.bg-image-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* GANTI FOTO PELABUHAN DI SINI */
+    background-image: url('../img/slide5.png'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* COUNTER BAR (Kotak Angka di Bawah) */
+.counter-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Tinggi kotak counter */
+}
+
+.counter-box {
+    flex: 1; /* Bagi dua sama rata (50:50) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue-box {
+    background-color: var(--primary-blue); /* Biru Marenova */
+}
+
+.dark-box {
+    background-color: #1a1a1a; /* Hitam Abu (Dark Grey) */
+}
+
+.counter-num {
+    margin-bottom: 5px;
+}
+
+.counter-label {
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Responsive HP */
+@media (max-width: 991px) {
+    .image-side {
+        min-height: 400px; /* Di HP jangan terlalu tinggi */
+    }
+    .counter-bar {
+        height: 120px; /* Kecilin dikit di HP */
+    }
+    .counter-num {
+        font-size: 2.5rem; /* Font angka dikecilin */
+    }
+}
+
+/* === SECTION PROFILE & MESSAGE === */
+
+/* KOLOM KIRI (PROFILE - BIRU) */
+.profile-side {
+    background-color: var(--primary-blue); /* Biru Marenova */
+    min-height: 600px;
+}
+
+.profile-side .section-heading {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #fff; /* Judul Putih */
+}
+
+/* Styling Item Profile */
+.profile-item h6 {
+    font-size: 1.1rem; /* Judul item agak besar (Company Name, Address, dll) */
+    letter-spacing: 0.5px;
+}
+
+.profile-item p {
+    font-size: 0.95rem; /* Isi data agak kecil */
+    line-height: 1.5;
+}
+
+/* Biar teks putihnya agak transparan dikit (class text-white-50 bawaan bootstrap) */
+.text-white-50 {
+    opacity: 0.8; 
+}
+
+
+/* KOLOM KANAN (MESSAGE - PUTIH) */
+/* Kita pakai class .message-side, tapi styling isinya SAMA kayak .brief-side yang sebelumnya */
+/* Jadi kita nggak perlu nulis ulang banyak kode CSS teks paragrafnya */
+
+.message-side {
+    color: #333;
+    min-height: 600px;
+}
+
+/* Styling Judul & Teks ngikutin style 'Brief' sebelumnya */
+/* (Karena di HTML kita pakai class .brief-title dan .brief-text yang sama) */
+
+
+/* RESPONSIVE HP */
+@media (max-width: 991px) {
+    .profile-side, .message-side {
+        padding: 40px 10px;
+    }
+}
+
+/* === CSS NYA HALAMAN SERVICES === */
+
+/* 1. SERVICE CARD (GRID) */
+.service-card {
+    transition: all 0.3s ease;
+    overflow: hidden; /* Biar garis animasi gak keluar kotak */
+    border-radius: 8px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Efek kartu naik ke atas pas disorot */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; /* Bayangan makin tebal */
+}
+
+/* Icon Bulat di dalam Kartu */
+.service-card .icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: #f0f4f8; /* Abu kebiruan super muda */
+    border-radius: 50%; /* Jadi bulat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .icon-box {
+    background-color: var(--primary-blue); /* Pas hover, bulatnya jadi biru */
+    color: #fff; /* Ikonnya jadi putih */
+}
+
+/* Link Read More */
+.read-more-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+.read-more-link i {
+    margin-left: 5px;
+    transition: margin-left 0.3s;
+}
+.service-card:hover .read-more-link i {
+    margin-left: 10px; /* Panahnya gerak ke kanan dikit pas hover */
+}
+
+/* Garis Animasi Bawah */
+.bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Awalnya 0 */
+    height: 4px;
+    background-color: #fbb040; /* Kuning */
+    transition: width 0.3s ease;
+}
+.service-card:hover .bottom-line {
+    width: 100%; /* Pas hover, garisnya memanjang jadi full */
+}
+
+
+/* 2. DETAIL SECTION (ZIG-ZAG) */
+.detail-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #e9ecef; /* Abu-abu samar banget */
+    line-height: 1;
+    margin-bottom: -20px; /* Biar judulnya numpuk dikit di atas angka */
+    position: relative;
+    z-index: 1;
+}
+
+.service-detail-section h3 {
+    position: relative;
+    z-index: 2; /* Biar judul di atas angka */
+    color: var(--primary-blue);
+}
+
+.service-detail-section img {
+    transition: transform 0.3s;
+}
+.service-detail-section .row:hover img {
+    transform: scale(1.02); /* Efek zoom dikit pas section disorot */
+}
