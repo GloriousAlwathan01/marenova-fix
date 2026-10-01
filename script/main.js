@@ -1,68 +1,70 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // A. HILANGKAN PRELOADER SAAT SELESAI LOAD
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader-overlay');
-        if (preloader) {
-            preloader.classList.add('sembunyi');
-        }
-    });
+    // A. HILANGKAN PRELOADER
+    // Hilang saat semua resource selesai dimuat, ATAU paling lambat 3 detik
+    // (gambar slide besar bisa membuat event 'load' sangat lama).
+    const preloader = document.getElementById('preloader-overlay');
+    let preloaderHidden = false;
+
+    function hidePreloader() {
+        if (preloaderHidden || !preloader) return;
+        preloaderHidden = true;
+        preloader.classList.add('sembunyi');
+        setTimeout(() => { preloader.style.display = 'none'; }, 600);
+    }
+
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
+    }
+    setTimeout(hidePreloader, 3000);
 
     // B. LOGIKA ACTIVE LINK (GARIS BIRU)
-    const currentLocation = location.href; 
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
     const menuItems = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    menuItems.forEach(item => item.classList.remove('active'));
 
-    menuItems.forEach((item) => {
-        if(item.href === currentLocation || (currentLocation.endsWith("/") && item.getAttribute("href") === "index.html")) {
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+        const href = (item.getAttribute('href') || '').split('#')[0];
+        if (href && href === currentPage) {
             item.classList.add('active');
         }
     });
 
     // C. NAVBAR MENGECIL & D. FADE IN SECTION
     const navbar = document.querySelector('.navbar');
-    
+
+    function reveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+
+        reveals.forEach(el => {
+            if (el.getBoundingClientRect().top < windowHeight - elementVisible) {
+                el.classList.add("active");
+            }
+        });
+    }
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (navbar) {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         }
         reveal();
     });
-
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 100;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
     reveal();
 
-    // E. BARU: LOGIKA SLIDER OTOMATIS (PREMIUM FADE)
+    // E. SLIDER OTOMATIS (FADE)
     const slides = document.querySelectorAll('.slide-item');
     if (slides.length > 0) {
         let currentSlide = 0;
-        const slideInterval = 5000; // Ganti slide setiap 5 detik
+        const slideInterval = 5000; // ganti slide tiap 5 detik
 
-        function nextSlide() {
-            // Hapus class active dari slide lama
+        setInterval(() => {
             slides[currentSlide].classList.remove('active');
-            // Pindah index
             currentSlide = (currentSlide + 1) % slides.length;
-            // Tambah class active ke slide baru
             slides[currentSlide].classList.add('active');
-        }
-
-        // Jalankan interval
-        setInterval(nextSlide, slideInterval);
+        }, slideInterval);
     }
-
 });

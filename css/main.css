@@ -2092,3 +2092,12 @@ nav ul li a.active {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+/* --- FAILSAFE PRELOADER (tanpa JS) ---
+   Jika JS gagal dimuat (404, error, dll), overlay otomatis hilang setelah 4 detik. */
+#preloader-overlay {
+    animation: preloaderAutoHide 0.5s ease 4s forwards;
+}
+@keyframes preloaderAutoHide {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+.sembunyi { pointer-events: none; }
