@@ -1,0 +1,290 @@
+/* =========================================================
+   CONTACT PAGE — Marenova
+   Dimuat SETELAH main.css. Semua class berawalan "ct-"
+   supaya tidak bentrok dengan aturan lama di main.css.
+   ========================================================= */
+
+.ct-hero,
+.ct-main,
+.ct-map {
+    --ct-navy: #0d3d6a;
+    --ct-navy-deep: #082a4a;
+    --ct-yellow: #fbb040;
+    --ct-ink: #1c2a38;
+    --ct-muted: #5b6b7a;
+    --ct-line: #dde4ec;
+    --ct-bg: #f3f6f9;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ---------- HERO ---------- */
+.ct-hero {
+    color: #fff;
+    padding: 104px 0 96px;
+    background:
+        linear-gradient(90deg,
+            rgba(8, 42, 74, 0.95) 0%,
+            rgba(8, 42, 74, 0.80) 48%,
+            rgba(8, 42, 74, 0.30) 100%),
+        url('../img/mineral.webp') center 40% / cover no-repeat;
+}
+
+.ct-hero-inner {
+    border-left: 6px solid var(--ct-yellow);
+    padding-left: 24px;
+    max-width: 640px;
+}
+
+.ct-hero h1 {
+    font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin: 0 0 18px;
+}
+
+.ct-hero p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0;
+    max-width: 34rem;
+}
+
+/* ---------- MAIN (info + form) ---------- */
+.ct-main {
+    background: var(--ct-bg);
+    padding: 80px 0;
+}
+
+.ct-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 72px;
+    align-items: start;
+}
+
+.ct-main h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ct-navy);
+    margin: 0 0 28px;
+}
+
+/* ----- daftar kontak ----- */
+.ct-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ct-item {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    column-gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--ct-line);
+}
+
+.ct-item:last-child {
+    border-bottom: 1px solid var(--ct-line);
+}
+
+.ct-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--ct-navy);
+    color: var(--ct-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+}
+
+.ct-item h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ct-ink);
+    margin: 2px 0 6px;
+}
+
+.ct-item p,
+.ct-item address {
+    margin: 0;
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ct-muted);
+    overflow-wrap: anywhere;
+}
+
+.ct-item a {
+    color: var(--ct-navy);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.ct-item a:hover {
+    border-bottom-color: var(--ct-yellow);
+}
+
+.ct-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 22px;
+    border: 2px solid var(--ct-navy);
+    border-radius: 4px;
+    color: var(--ct-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ct-directions:hover {
+    background: var(--ct-navy);
+    color: #fff;
+}
+
+/* ----- form ----- */
+.ct-form-panel {
+    background: #fff;
+    border-top: 5px solid var(--ct-yellow);
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(13, 61, 106, 0.08);
+}
+
+.ct-form-panel h2 {
+    margin-bottom: 8px;
+}
+
+.ct-form-note {
+    color: var(--ct-muted);
+    font-size: 0.9rem;
+    margin: 0 0 28px;
+}
+
+.ct-field {
+    margin-bottom: 20px;
+}
+
+.ct-field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ct-ink);
+    margin-bottom: 6px;
+}
+
+.ct-field input,
+.ct-field textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ct-ink);
+    background: #fff;
+    border: 1px solid #c5d0dc;
+    border-radius: 4px;
+    padding: 12px 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ct-field textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.ct-field input:focus,
+.ct-field textarea:focus {
+    outline: none;
+    border-color: var(--ct-navy);
+    box-shadow: 0 0 0 3px rgba(13, 61, 106, 0.18);
+}
+
+.ct-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ct-navy);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 0;
+    border-radius: 4px;
+    padding: 14px 30px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.ct-submit:hover {
+    background: var(--ct-navy-deep);
+}
+
+.ct-submit:focus-visible,
+.ct-directions:focus-visible,
+.ct-item a:focus-visible {
+    outline: 3px solid var(--ct-yellow);
+    outline-offset: 3px;
+}
+
+/* ---------- MAP ---------- */
+.ct-map iframe {
+    display: block;
+    width: 100%;
+    height: 420px;
+    border: 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 991.98px) {
+    .ct-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .ct-main {
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ct-hero {
+        padding: 72px 0 64px;
+    }
+
+    .ct-hero-inner {
+        padding-left: 18px;
+        border-left-width: 5px;
+    }
+
+    .ct-form-panel {
+        padding: 28px 20px;
+    }
+
+    .ct-submit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ct-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        column-gap: 16px;
+    }
+
+    .ct-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+    }
+
+    .ct-map iframe {
+        height: 320px;
+    }
+}

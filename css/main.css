@@ -26,6 +26,72 @@ body {
     animation: muterDong 1s linear infinite;
 }
 
+/* Background Biru Top Bar */
+.top-bar {
+  background-color: #3871c1; /* Warna biru mirip di foto */
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+/* Container Pembungkus */
+.top-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between; /* Membagi elemen Kiri & Kanan */
+  align-items: center;
+}
+
+/* Kiri & Kanan Flexbox */
+.top-bar-left, 
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Jarak antar elemen */
+}
+
+/* Item Teks & Link */
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak ikon ke teks */
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.top-item:hover {
+  opacity: 0.8;
+}
+
+/* Ukuran Ikon */
+.top-bar i {
+  font-size: 14px;
+}
+
+/* Garis Pembatas Vertikal */
+.top-bar .divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Dropdown Bahasa */
+.lang-select {
+  cursor: pointer;
+}
+
+/* Responsive: Sembunyikan di Layar HP/Kecil agar tidak berantakan */
+@media (max-width: 768px) {
+  .top-bar-left {
+    display: none; /* Menyembunyikan kontak di layar HP */
+  }
+  .top-bar-container {
+    justify-content: flex-end;
+  }
+}
+
 @keyframes muterDong {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -36,14 +102,28 @@ body {
     visibility: hidden;
 }
 
-/* --- PERBAIKAN LOGO (Tanpa Edit Gambar) --- */
-.navbar-brand img {
-    height: 65px !important; /* Paksa tinggi logo di sini */
-    width: auto; 
+/* 1. Atur tinggi maksimal logo agar pas */
+.navbar-brand img, 
+.logo-img {
+    height: 80px !important; /* Atur angka ini (misal 40px - 50px) agar logo pas */
+    width: auto !important;
+    max-height: 100% !important;
     transition: all 0.3s ease;
-    padding: 5px 0;
 }
 
+/* 2. Kunci ketebalan/padding navbar agar tidak melar saat di-scroll */
+.navbar {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    min-height: 60px !important; /* Kunci tinggi minimal navbar */
+}
+
+/* 3. Jaga agar isi di dalam navbar tetap sejajar di tengah secara vertikal */
+.navbar .container, 
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+}
 /* --- SLIDER PREMIUM (Ken Burns Effect) --- */
 /* Container utama harus relative */
 .hero-slider {
@@ -342,8 +422,8 @@ body {
 
 /* Styling Tombol (Nyontek GIS) */
 .btn-custom {
-    background-color: #fbb040; /* Warna Kuning GIS */
-    border-color: #fbb040;
+    background-color: #3871c1; /* Warna Kuning GIS */
+    border-color: #3871c1;
     font-weight: 600;
     color: #0d3d6a; /* Warna Biru GIS */
     padding: 10px 25px;
@@ -445,7 +525,7 @@ body {
     color: #333;
 }
 
-/* === KOTAK HITAM ABOUT US (BAWAH) === */
+/* === KOTAK HITAM Our Company (BAWAH) === */
 .about-cta-box {
     background-color: #1a1a1a; /* Hitam pekat (bukan hitam mati) sesuai referensi */
     padding: 20px 50px; /* PENTING: 50px biar teksnya LURUS sama teks di atasnya */
@@ -454,7 +534,7 @@ body {
     align-items: center; /* Vertikal tengah */
 }
 
-/* Teks "About Us" */
+/* Teks "Our Company" */
 .about-cta-box h3 {
     color: #fff;
     font-size: 1.8rem; /* Ukuran font besar & tebal */
@@ -689,7 +769,7 @@ body {
 
 .custom-input:focus {
     box-shadow: none;
-    border: 1px solid #fbb040; /* Efek kuning pas diklik */
+    border: 1px solid #3871c1; /* Efek kuning pas diklik */
 }
 
 /* Area Kanan (Info Putih) */
@@ -710,7 +790,7 @@ body {
     }
 }
 
-/* HALAMAN ABOUT US */
+/* HALAMAN Our Company */
 
 /* === ABOUT PAGE CONTACT SECTION === */
 
@@ -768,7 +848,7 @@ body {
 
 /* 2. Pengaturan Kolom Kanan (FORM) */
 .about-form-side {
-    background-color: var(--primary-blue); /* Warnanya tetep sama kayak Home */
+    background-color: #3871c1;
     display: flex;
     align-items: center; /* Biar formnya vertikal di tengah */
 }
@@ -784,7 +864,7 @@ body {
 
 /* 1. KOLOM KIRI (BIRU) */
 .vision-side {
-    background-color: var(--primary-blue); /* Pake warna biru utama lo */
+    background-color: #3871c1; /* Pake warna biru utama lo */
     min-height: 600px; /* Biar tinggi minimalnya kejaga */
 }
 
@@ -834,7 +914,7 @@ body {
 
 /* Paragraf Teks Brief */
 .brief-text p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.8; /* Spasi baris lega biar enak dibaca */
     color: #555;
     margin-bottom: 20px;
@@ -888,7 +968,7 @@ body {
     width: 100%;
     height: 100%;
     /* GANTI FOTO PELABUHAN DI SINI */
-    background-image: url('../img/slide5.png'); 
+    background-image: url('../img/peta.png'); 
     background-size: cover;
     background-position: center;
 }
@@ -944,7 +1024,7 @@ body {
 
 /* KOLOM KIRI (PROFILE - BIRU) */
 .profile-side {
-    background-color: var(--primary-blue); /* Biru Marenova */
+    background-color: #3871c1; /* Biru Marenova */
     min-height: 600px;
 }
 
@@ -1458,7 +1538,7 @@ nav ul li a.active {
     }
 }
 
-/* Bagian About Us */
+/* Bagian Our Company */
 
 /* Penataan Umum */
 .board-section {
@@ -2087,6 +2167,58 @@ nav ul li a.active {
 
 .slide-in-right {
     animation: slideInRight 1s ease-out both;
+}
+
+.vm-item {
+  background-color: #0e2a4a; /* Warna biru tua */
+  color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 6px;
+}
+
+/* Tampilan Kotak Vision & Mission */
+.vm-item {
+  background-color: #3871c1; /* Warna biru slate sesuai draft */
+  color: #ffffff;             /* Teks warna putih */
+  padding: 24px 28px;         /* Jarak ruang di dalam kotak */
+  border-right: 6px solid #ff3131; /* Garis vertikal oranye di sebelah kanan */
+  border-radius: 4px;         /* Lekukan halus di sudut kotak */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Judul "Vision" & "Mission" */
+.vm-item h4 {
+  color: #ffffff !important;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Teks Paragraf & List */
+.vm-item .vm-text,
+.vm-item .vm-list li {
+  color: #f0f4f8;             /* Putih sedikit lembut agar nyaman dibaca */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Merapikan jarak antar list mission */
+.vm-item .vm-list li {
+  margin-bottom: 8px;
+}
+
+/* Warna ikon panah (jika masih dipakai) */
+.vm-item .icon-arrow i {
+  color: #ffffff;
+}
+
+.vision-side {
+    background: linear-gradient(
+        to right,
+        #4d82c3 0%,
+        #7891aa 50%,
+        #adb1b4 100%
+    );
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
